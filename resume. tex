@@ -83,7 +83,9 @@
     \vspace{0.5ex}
     {\Large CLOUD ENGINEER} \\
     \vspace{2ex}
-    +65 94766448 $|$ \href{mailto:shashimald@gmail.com}{shashimald@gmail.com} $|$ \href{https://linkedin.com/in/duleendra}{linkedin.com/in/duleendra} $|$ \href{https://github.com/shashimal}{github.com/shashimal} $|$ \href{https://duleendra.co/}{duleendra.co} $|$ Singapore PR
+    +65 94766448 $|$ \href{mailto:shashimald@gmail.com}{shashimald@gmail.com} $|$
+    \href{https://duleendra.medium.com/}{duleendra.medium.com} $|$
+    \href{https://linkedin.com/in/duleendra}{linkedin.com/in/duleendra} $|$ \href{https://github.com/shashimal}{github.com/shashimal} $|$  $|$ \textbf{Singapore PR}
 \end{flushleft}
 \vspace{1ex}
 
@@ -103,11 +105,11 @@
 \cvsection{Technical Skills}
 \begin{entrylist}
     \skill{Cloud Infrastructure}{Proficient in AWS,}
-    \skill {Hands on experience with} {AWS EC2, ECS, EKS, Lambda, SQS, IAM, ALB, CloudFront, VPC, RDS, S3, CloudWatch, WAF, Route53}
+    \skill {Hands on experience with} {AWS ECS, EKS, EC2, Lambda, SQS, IAM, ALB, CloudFront, VPC, RDS, S3, CloudWatch, WAF, Route53, Control Tower , Verified Access}
     \skill{Containerization \& Orchestration}{Docker, Kubernetes, EKS, ECS, Helm, Karpenter}
     \skill{Infrastructure as Code}{Terraform, AWS CDK, CloudFormation}
     \skill{CI/CD}{GitHub Actions, AWS CodePipeline}
-    \skill{Programming}{Java, JavaScript, PHP}
+    \skill{Programming}{Java,Spring \& SpringBoot, JavaScript, PHP}
     \skill{Other}{HashiCorp Terraform Cloud, HashiCorp Vault}
 \end{entrylist}
 
@@ -120,10 +122,13 @@
     \entry{Staff Engineer - Cloud Platform}{Aug 2022 -- Present}
           {SPH Media}{Singapore}
     \begin{itemize}
+           \item Currently integrating KEDA with EKS clusters using cron-based scaling (scale in at 8 PM, scale out at 7 AM) to reduce costs in development and staging environments.
+       \item Contributed to an ECS-to-EKS/Karpenter migration for an application with 15+ microservices, successfully migrating 8 services to EKS using Kubernetes best practices.
         \item Led the end-to-end migration of the \href{https://www.razor.tv}{RazorTV} application from on-premises to AWS, designing the target architecture, containerizing the application with Docker, deploying it on Amazon ECS with Fargate, and leveraging AWS CloudFront for content delivery.
         \item Led the end-to-end migration of the \href{https://www.redants.sg}{RedAnts} application from on-premises to AWS, deploying the containerized application on Amazon EKS with Karpenter.
         \item Successfully completed the CDN migration for the \href{https://www.beritaharian.sg/}{BeritaHarian} website from Verizon to AWS CloudFront, developing custom logic with Lambda@Edge and CloudFront Functions to bridge feature gaps.
         \item Manage the cloud infrastructure for an application comprising 15 microservices, hosted on AWS ECS and utilizing AWS CodePipeline and GitHub Actions for CI/CD.
+        \item Centralized VPC Interface Endpoints using AWS Route 53 Profiles, consolidating over 10 account-specific interface endpoints into a single shared endpoint and significantly reducing duplication, cost, and operational overhead.
         \item Implemented Infrastructure as Code (IaC) using Terraform and automated CI/CD pipelines with GitHub Actions for multiple projects.
         \item Introduced and implemented AWS Verified Access to solve a key requirement for secure, VPN-less access to internal applications, and subsequently developed and published an open-source \href{https://github.com/SPHTech-Platform/terraform-aws-verified-access}{Terraform module} for the service.
         \item Built a custom extension to AWS Control Tower Account Factory for Terraform (AFT) to support modifications to existing AWS accounts, a capability not natively available, by using AWS EventBridge Pipes and AWS Lambda.
@@ -132,7 +137,6 @@
         \item Continuous cost optimization and architectural improvements for cloud applications.
     \end{itemize}
 
-    \newpage % Forces the following content to start on a new page
 
     \entry{Cloud Engineer}{Dec 2021 -- Aug 2022}
           {Bambu Robo Advisor}{Singapore}
