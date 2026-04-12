@@ -88,14 +88,14 @@
 %  HEADER
 % ════════════════════════════════════════════════════════════════════════════
 {\Huge\bfseries\color{dark} DULEENDRA SHASHIMAL}\\[4pt]
-{\large\color{accent} Cloud Architect \quad|\quad Platform Engineering \quad|\quad AWS Specialist}\\[6pt]
-{\small\color{light}
-  +65 9476 6448 \quad|\quad
-  \href{mailto:shashimald@gmail.com}{shashimald@gmail.com} \quad|\quad
-  \href{https://linkedin.com/in/duleendra}{linkedin.com/in/duleendra} \quad|\quad
-  \href{https://duleendra.medium.com}{duleendra.medium.com} \quad|\quad
-  \href{https://github.com/shashimal}{github.com/shashimal} \quad|\quad
-  \textbf{Singapore PR}
+{\large\color{accent} Cloud Architect \quad|\quad Platform Engineering \quad|\quad AWS Specialist \quad|\quad AWS Community Builder}\\[6pt]
+{\fontsize{8.5}{11}\selectfont\color{light}
+  \mbox{+65 9476 6448} \,|\,
+  \href{mailto:shashimald@gmail.com}{\mbox{shashimald@gmail.com}} \,|\,
+  \href{https://linkedin.com/in/duleendra}{\mbox{linkedin.com/in/duleendra}} \,|\,
+  \href{https://duleendra.medium.com}{\mbox{duleendra.medium.com}} \,|\,
+  \href{https://github.com/shashimal}{\mbox{github.com/shashimal}} \,|\,
+  \textbf{\mbox{Singapore PR}}
 }
 
 \vspace{4pt}
@@ -170,7 +170,7 @@ certifications, CKA, and HashiCorp Terraform Associate.
     module}; maintains and develops the internal Terraform module library.
 \end{itemize}
 
-\vspace{10pt}
+\newpage
 
 % ── Bambu ────────────────────────────────────────────────────────────────────
 \entrytitle{Cloud Engineer}{Bambu Robo Advisor}{Singapore}{Dec 2021 – Aug 2022}
