@@ -1,225 +1,301 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Awesome-CV/Resume
-%
-% This template has been populated with user data
-% while maintaining an ATS-friendly format.
-%
-% Important:
-% 1. This template needs to be compiled with XeLaTeX or LuaLaTeX.
-%
+% Duleendra Shashimal — Cloud Architect Resume
+% Compile with XeLaTeX or LuaLaTeX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[11pt, a4paper]{article}
 
 \usepackage[a4paper,
-            left=0.8in,
-            right=0.8in,
-            top=0.7in,
-            bottom=0.7in,
-            footskip=.5in]{geometry}
+  left=0.75in,
+  right=0.75in,
+  top=0.65in,
+  bottom=0.65in]{geometry}
 
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
-\usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{titlesec}
-
-% Color for links
 \usepackage{xcolor}
-\definecolor{linkcolor}{rgb}{0.27, 0.52, 0.81}
+\usepackage{enumitem}
+
+% ── Colours ──────────────────────────────────────────────────────────────────
+\definecolor{accent}{rgb}{0.10, 0.36, 0.62}   % steel blue
+\definecolor{dark}{rgb}{0.10, 0.10, 0.10}
+\definecolor{mid}{rgb}{0.27, 0.27, 0.27}
+\definecolor{light}{rgb}{0.40, 0.40, 0.40}
+
 \hypersetup{
-    colorlinks=true,
-    linkcolor=linkcolor,
-    urlcolor=linkcolor,
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
 }
 
-% Font settings
-\setmainfont{TeX Gyre Termes} % A classic, readable font (Times clone)
-\setsansfont{TeX Gyre Heros}  % A clean sans-serif font (Helvetica clone)
+% ── Fonts ────────────────────────────────────────────────────────────────────
+% Calibri is the industry standard for modern resumes (used by LinkedIn, FAANG recruiters).
+% Carlito is a metric-compatible libre clone — identical spacing, renders identically in ATS.
+% Fallback chain: Calibri (if installed) → Carlito → TeX Gyre Heros
+\setmainfont[
+  BoldFont       = {Carlito Bold},
+  ItalicFont     = {Carlito Italic},
+  BoldItalicFont = {Carlito Bold Italic},
+]{Carlito}
+\setsansfont[
+  BoldFont       = {Carlito Bold},
+  ItalicFont     = {Carlito Italic},
+  BoldItalicFont = {Carlito Bold Italic},
+]{Carlito}
 
-% Title and section formatting
+% ── Page style ───────────────────────────────────────────────────────────────
 \pagestyle{empty}
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{2ex}{1ex}
 
-% --- CHANGE: Redefine the second-level itemize bullet to be a circle ---
-\renewcommand{\labelitemii}{$\bullet$}
+% ── Section heading: small-caps, coloured rule ───────────────────────────────
+\titleformat{\section}
+  {\large\bfseries\scshape\color{accent}\raggedright}
+  {}{0em}{}
+  [\color{accent}\titlerule]
+% Increased spacing: 18pt before section, 6pt after rule
+\titlespacing{\section}{0pt}{18pt}{6pt}
 
-% Custom commands for CV sections
-\newcommand{\cvsection}[1]{\section*{#1}}
+% ── Bullet list tightened ────────────────────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.4em,
+  itemsep=2pt,
+  parsep=0pt,
+  topsep=3pt,
+}
+\renewcommand{\labelitemi}{\textcolor{accent}{\textbullet}}
 
-% Custom command for entry list
-\newenvironment{entrylist}{
-  \begin{itemize}
-    \setlength{\itemsep}{0.5em}
-    \setlength{\parskip}{0em}
-    \setlength{\parsep}{0em}
-}{\end{itemize}}
-
-\newcommand{\entry}[4]{
-  \item[] \textbf{#1} \hfill #2 \\
-  \textit{#3} \hfill \textit{#4}
+% ── Helper: right-aligned date on same line ───────────────────────────────────
+\newcommand{\entrytitle}[4]{%
+  \noindent
+  \textbf{\color{dark}#1}\enspace{\color{light}·}\enspace
+  {\color{mid}#2}\enspace{\color{light}·}\enspace
+  {\color{light}#3}%
+  \hfill{\color{light}\textit{\small#4}}%
+  \par\vspace{2pt}%
 }
 
-\newcommand{\projectentry}[3]{
-  \item[] \textbf{#1} \hfill \textit{#2} \\
-  #3
+% ── Skill row ────────────────────────────────────────────────────────────────
+\newcommand{\skillrow}[2]{%
+  \noindent\textbf{\color{dark}#1:}\enspace{\color{mid}#2}\par\vspace{2pt}%
 }
-
-\newcommand{\skill}[2]{
-  \item[] \textbf{#1:} #2
-}
-
 
 \begin{document}
+\sffamily
 
-%-------------------------------------------------------------------------------
-%	NAME AND CONTACT INFORMATION
-%-------------------------------------------------------------------------------
-\begin{flushleft}
-    \sffamily % Use sans-serif font only for the header
-    {\Huge\bfseries DULEENDRA SHASHIMAL} \\
-    \vspace{0.5ex}
-    {\Large CLOUD ENGINEER} \\
-    \vspace{2ex}
-    +65 94766448 $|$ \href{mailto:shashimald@gmail.com}{shashimald@gmail.com} $|$
-    \href{https://duleendra.medium.com/}{duleendra.medium.com} $|$
-    \href{https://linkedin.com/in/duleendra}{linkedin.com/in/duleendra} $|$ \href{https://github.com/shashimal}{github.com/shashimal} $|$  $|$ \textbf{Singapore PR}
-\end{flushleft}
-\vspace{1ex}
+% ════════════════════════════════════════════════════════════════════════════
+%  HEADER
+% ════════════════════════════════════════════════════════════════════════════
+{\Huge\bfseries\color{dark} DULEENDRA SHASHIMAL}\\[4pt]
+{\large\color{accent} Cloud Architect \quad|\quad Platform Engineering \quad|\quad AWS Specialist \quad|\quad AWS Community Builder}\\[6pt]
+{\fontsize{8.5}{11}\selectfont\color{light}
+  \mbox{+65 9476 6448} \,|\,
+  \href{mailto:shashimald@gmail.com}{\mbox{shashimald@gmail.com}} \,|\,
+  \href{https://linkedin.com/in/duleendra}{\mbox{linkedin.com/in/duleendra}} \,|\,
+  \href{https://duleendra.medium.com}{\mbox{duleendra.medium.com}} \,|\,
+  \href{https://github.com/shashimal}{\mbox{github.com/shashimal}} \,|\,
+  \textbf{\mbox{Singapore PR}}
+}
 
+\vspace{4pt}
 
-%-------------------------------------------------------------------------------
-%	PROFESSIONAL SUMMARY
-%-------------------------------------------------------------------------------
-\cvsection{Professional Summary}
-\begin{entrylist}
-    \item[] Cloud and DevOps Engineer with 6+ years of experience in cloud infrastructure, automation, and platform engineering, backed by 10+ years in software engineering. Specialized in AWS with a strong focus on cloud migration, containerization, and Infrastructure as Code. Recognized as an AWS Community Builder, where I actively share knowledge, contribute to Open-Source Terraform modules, and write blog articles about real-world cloud solutions.
-\end{entrylist}
+% ════════════════════════════════════════════════════════════════════════════
+%  PROFESSIONAL SUMMARY
+% ════════════════════════════════════════════════════════════════════════════
+\section*{Professional Summary}
 
+\color{mid}
+Cloud Architect and Staff Platform Engineer with 8\texttt{+} years in AWS cloud infrastructure and
+10\texttt{+} years in software engineering. Deep expertise in multi-account governance, container
+platform engineering, and security automation at scale using Terraform and AWS CDK. Architect of
+production systems across media, fintech, and SaaS verticals. AWS Community Builder, open-source
+contributor, and technical author recognised by the Terraform community. Holds 9 AWS
+certifications, CKA, and HashiCorp Terraform Associate.
 
-%-------------------------------------------------------------------------------
-%	TECHNICAL SKILLS
-%-------------------------------------------------------------------------------
-\cvsection{Technical Skills}
-\begin{entrylist}
-    \skill{Cloud Infrastructure}{Proficient in AWS,}
-    \skill {Hands on experience with} {AWS ECS, EKS, EC2, Lambda, SQS, IAM, ALB, CloudFront, VPC, RDS, S3, CloudWatch, WAF, Route53, Control Tower , Verified Access}
-    \skill{Containerization \& Orchestration}{Docker, Kubernetes, EKS, ECS, Helm, Karpenter}
-    \skill{Infrastructure as Code}{Terraform, AWS CDK, CloudFormation}
-    \skill{CI/CD}{GitHub Actions, AWS CodePipeline}
-    \skill{Programming}{Java,Spring \& SpringBoot, JavaScript, PHP}
-    \skill{Other}{HashiCorp Terraform Cloud, HashiCorp Vault}
-\end{entrylist}
+% ════════════════════════════════════════════════════════════════════════════
+%  CORE COMPETENCIES
+% ════════════════════════════════════════════════════════════════════════════
+\section*{Core Competencies}
 
+\skillrow{Cloud Architecture}{Multi-account governance (Control Tower, AFT), landing zone design, cost optimisation, security architecture}
+\skillrow{Container Platforms}{EKS, ECS, Karpenter, Helm, KEDA, Kubernetes best practices, multi-tenant workload isolation}
+\skillrow{Infrastructure as Code}{Terraform (advanced), AWS CDK (Node.js), CloudFormation — authoring and maintaining reusable module libraries}
+\skillrow{Security \& Networking}{AWS Verified Access, IAM, VPC design, Route 53 Profiles, WAF, HashiCorp Vault, zero-trust access patterns}
+\skillrow{CI/CD \& Automation}{GitHub Actions, AWS CodePipeline, event-driven automation (EventBridge, Lambda)}
+\skillrow{AWS Services}{ECS, EKS, EC2, Lambda, SQS, IAM, ALB, CloudFront, VPC, RDS, S3, CloudWatch, WAF, Route 53, Control Tower, Verified Access}
+\skillrow{Languages}{HCL, Node.js, Python, Java / Spring Boot, JavaScript}
 
-%-------------------------------------------------------------------------------
-%	WORK EXPERIENCE
-%-------------------------------------------------------------------------------
-\cvsection{Work Experience}
-\begin{entrylist}
-    \entry{Staff Engineer - Cloud Platform}{Aug 2022 -- Present}
-          {SPH Media}{Singapore}
-    \begin{itemize}
-           \item Currently integrating KEDA with EKS clusters using cron-based scaling (scale in at 8 PM, scale out at 7 AM) to reduce costs in development and staging environments.
-       \item Contributed to an ECS-to-EKS/Karpenter migration for an application with 15+ microservices, successfully migrating 8 services to EKS using Kubernetes best practices.
-        \item Led the end-to-end migration of the \href{https://www.razor.tv}{RazorTV} application from on-premises to AWS, designing the target architecture, containerizing the application with Docker, deploying it on Amazon ECS with Fargate, and leveraging AWS CloudFront for content delivery.
-        \item Led the end-to-end migration of the \href{https://www.redants.sg}{RedAnts} application from on-premises to AWS, deploying the containerized application on Amazon EKS with Karpenter.
-        \item Successfully completed the CDN migration for the \href{https://www.beritaharian.sg/}{BeritaHarian} website from Verizon to AWS CloudFront, developing custom logic with Lambda@Edge and CloudFront Functions to bridge feature gaps.
-        \item Manage the cloud infrastructure for an application comprising 15 microservices, hosted on AWS ECS and utilizing AWS CodePipeline and GitHub Actions for CI/CD.
-        \item Centralized VPC Interface Endpoints using AWS Route 53 Profiles, consolidating over 10 account-specific interface endpoints into a single shared endpoint and significantly reducing duplication, cost, and operational overhead.
-        \item Implemented Infrastructure as Code (IaC) using Terraform and automated CI/CD pipelines with GitHub Actions for multiple projects.
-        \item Introduced and implemented AWS Verified Access to solve a key requirement for secure, VPN-less access to internal applications, and subsequently developed and published an open-source \href{https://github.com/SPHTech-Platform/terraform-aws-verified-access}{Terraform module} for the service.
-        \item Built a custom extension to AWS Control Tower Account Factory for Terraform (AFT) to support modifications to existing AWS accounts, a capability not natively available, by using AWS EventBridge Pipes and AWS Lambda.
-        \item Contributed a new \href{https://github.com/cloudposse/terraform-aws-waf/pull/79}{feature} to the open-source CloudPosse Terraform AWS WAF module to meet a project requirement.
-        \item Contribute to the development and maintenance of internal Terraform modules.
-        \item Continuous cost optimization and architectural improvements for cloud applications.
-    \end{itemize}
+% ════════════════════════════════════════════════════════════════════════════
+%  WORK EXPERIENCE
+% ════════════════════════════════════════════════════════════════════════════
+\section*{Work Experience}
 
+% ── SPH Media (current) ──────────────────────────────────────────────────────
+\entrytitle{Staff Engineer — Cloud Platform}{SPH Media}{Singapore}{Aug 2022 – Present}
 
-    \entry{Cloud Engineer}{Dec 2021 -- Aug 2022}
-          {Bambu Robo Advisor}{Singapore}
-    \begin{itemize}
-        \item Managed the AWS cloud infrastructure for the Bambu Robo Advisor investment platform.
-        \item Streamlined the AWS ECS infrastructure setup for over 20 microservices by leveraging AWS CDK, enabling consistent, scalable, and maintainable deployments.
-        \item Automated the AWS Client-VPN setup process using AWS CDK, eliminating previous manual configurations.
-        \item Reduced ECR costs by over 80\%  by implementing a targeted cross-region replication strategy and optimizing Docker images with alpine base images, which significantly decreased storage and data transfer cost.
-        \item Maintained automated CI/CD workflows using AWS CodePipeline to streamline application releases.
-        \item Created custom DataDog dashboards for comprehensive infrastructure monitoring.
-    \end{itemize}
-
-    \entry{Software Engineer}{Aug 2019 -- Dec 2021}
-          {EROAD LTD}{New Zealand}
-    \begin{itemize}
-        \item Functioned in a DevOps capacity, with responsibility for both application development and AWS cloud architecture implementation.
-        \item Developed Java-based microservices using the Spring Boot framework and deployed on Amazon ECS.
-        \item Utilized AWS CloudFormation for Infrastructure as Code (IaC) to automate the infrastructure provisioning.
-        \item Implemented and maintained CI/CD pipelines using Concourse CI to automate build and deployment workflows.
-        \item Utilized AWS CloudWatch and Grafana for application monitoring and alerting.
-    \end{itemize}
-
-    \entry{Principal Software Engineer / Team Lead}{Jun 2013 -- Sep 2017}
-          {SPH Media}{Singapore}
-    \begin{itemize}
-        \item Managed the \href{https://www.newslink.sg/}{Newslink} platform, the primary news archival system at SPH Media.
-        \item Involved in both application development and infrastructure setup across On-Premises and AWS environments.
-        \item Automated various infrastructure and operational tasks using AWS CloudFormation, shell scripts, and Java.
-        \item Rearchitected the Newslink web application by integrating Elasticsearch, significantly improving the speed and accuracy of archival news searches.
-        \item Customized the open-source Apache Nutch web crawler to fulfill specific business requirements.
-        \item Led a team of three software engineers.
-        \item Collaborated closely with end users and stakeholders to implement enhancements and resolve production issues promptly.
-    \end{itemize}
-\end{entrylist}
-
-%-------------------------------------------------------------------------------
-%	PREVIOUS EXPERIENCE
-%-------------------------------------------------------------------------------
-\cvsection{Previous Experience}
-\begin{entrylist}
-    \entry{Senior Software Engineer}{Sep 2017 -- Feb 2018}{Tremor Video DSP}{Singapore}
-    \entry{Software Engineer}{Oct 2012 -- May 2013}{Cellcity LTD}{Singapore}
-    \entry{Software Engineer}{Jan 2008 -- Sep 2012}{OrangeHRM LTD}{Sri Lanka}
-\end{entrylist}
-
-
-%-------------------------------------------------------------------------------
-%	EDUCATION
-%-------------------------------------------------------------------------------
-\cvsection{Education}
-\begin{entrylist}
-    \entry{Bachelor of Information Technology}{}{University of Colombo}{Sri Lanka}
-\end{entrylist}
-
-
-%-------------------------------------------------------------------------------
-%	OPEN-SOURCE CONTRIBUTIONS
-%-------------------------------------------------------------------------------
-\cvsection{Open-Source Contributions}
 \begin{itemize}
-    \item Add an option to specify the alarm metric transformation unit in \textbf{terraform-aws-modules/terraform-aws-cloudwatch} module (\href{https://github.com/terraform-aws-modules/terraform-aws-cloudwatch/pull/49}{PR}).
-    \item Add a custom response body for the WAF default block action in \textbf{cloudposse/terraform-aws-waf} module (\href{https://github.com/cloudposse/terraform-aws-waf/pull/79}{PR}).
-    \item Manage and contribute to \href{https://github.com/SPHTech-Platform/terraform-aws-verified-access}{SPHTech-Platform/terraform-aws-verified-access} module.
-    \item Added the ECS Fargate support for \textbf{SPHTech-Platform/terraform-aws-ecs} module (\href{https://github.com/SPHTech-Platform/terraform-aws-ecs/pull/4}{PR}).
-    \item Fixed a bug in {\textbf{SPHTech-Platform/terraform-aws-s3-cloudfront-static-site}} module (\href{https://github.com/SPHTech-Platform/terraform-aws-s3-cloudfront-static-site/pull/12}{PR}).
+  \item Architected a \textbf{zero-trust access solution} using AWS Verified Access, replacing VPN for
+    internal applications across multiple AWS accounts. Designed and published an open-source
+    \href{https://github.com/SPHTech-Platform/terraform-aws-verified-access}{Terraform module}
+    now used organisation-wide.
+
+  \item Designed and delivered a \textbf{centralised VPC endpoint architecture} using AWS Route 53
+    Profiles, consolidating 10\texttt{+} account-specific Interface Endpoints into a single shared
+    endpoint — eliminating duplication and significantly reducing cost and operational overhead.
+
+  \item Extended AWS Control Tower Account Factory for Terraform (AFT) with a \textbf{custom
+    account-modification capability} (not natively supported) using EventBridge Pipes and Lambda,
+    enabling automated governance at scale.
+
+  \item Led architecture and delivery of an ECS-to-EKS/Karpenter migration for a
+    \textbf{15\texttt{+} microservice platform}, defining node pool topology, workload isolation
+    strategy, and Kubernetes best practices.
+
+  \item Architected full cloud migration of the
+    \href{https://www.razor.tv}{RazorTV} and
+    \href{https://www.redants.sg}{RedAnts} platforms from on-premises to AWS — designing target
+    state, containerising applications, and deploying on ECS Fargate and EKS with Karpenter
+    respectively.
+
+  \item Delivered \href{https://www.beritaharian.sg}{CDN migration for BeritaHarian} from Verizon
+    to AWS CloudFront, building custom Lambda@Edge and CloudFront Functions to bridge feature gaps
+    without regression.
+
+  \item Integrating \textbf{KEDA cron-based scaling} into EKS clusters (scale-in at 20:00,
+    scale-out at 07:00) to reduce compute spend in non-production environments.
+
+  \item Contributed a new feature to the open-source
+    \href{https://github.com/cloudposse/terraform-aws-waf/pull/79}{CloudPosse Terraform AWS WAF
+    module}; maintains and develops the internal Terraform module library.
 \end{itemize}
 
+\newpage
 
-%-------------------------------------------------------------------------------
-%	CERTIFICATIONS
-%-------------------------------------------------------------------------------
-\cvsection{Certifications \& Achievements}
+% ── Bambu ────────────────────────────────────────────────────────────────────
+\entrytitle{Cloud Engineer}{Bambu Robo Advisor}{Singapore}{Dec 2021 – Aug 2022}
+
 \begin{itemize}
-    \item Holding 9 AWS certifications
-    \item Certified Kubernetes Administrator
-    \item HashiCorp Certified: Terraform Associate \href{https://www.credly.com/users/duleendra-shashimal-warakagoda/badges#credly}{Verification Link}
-   \item Recognized by the Terraform community, with several blog articles featured on \href{https://www.weekly.tf/}{weekly.tf}, including:
-        \begin{itemize}
-            \item \href{https://www.weekly.tf/p/issue-149-integrating-hashicorp-vault-with-aws-lambda-using-terraform}{Integrating HashiCorp Vault with AWS Lambda Using Terraform}
-            \item \href{https://www.weekly.tf/p/issue-213-terraform-code-for-scalability-and-maintainability-s3-tables-terraform-state-in-azure-can}{AWS PrivateLink Cross-Region Connectivity}
-            \item \href{https://www.weekly.tf/p/issue-206-secure-secrets-with-aws-kms-aws-verified-access-groups-airflow-migrating-terraform-state}{Sharing AWS Verified Access Groups Across AWS Accounts}
-        \end{itemize}
+  \item Designed and implemented AWS infrastructure for a fintech investment platform serving
+    20\texttt{+} microservices, using AWS CDK for consistent and repeatable deployments across
+    environments.
+
+  \item Reduced ECR costs by over \textbf{80\%} by re-architecting cross-region replication strategy
+    and optimising Docker base images — cutting both storage and data transfer spend.
+
+  \item Automated AWS Client VPN provisioning using AWS CDK, eliminating manual configuration toil
+    and standardising secure remote access.
+
+  \item Built comprehensive DataDog dashboards and maintained CI/CD workflows using AWS
+    CodePipeline.
 \end{itemize}
 
+\vspace{10pt}
+
+% ── EROAD ────────────────────────────────────────────────────────────────────
+\entrytitle{Software Engineer (DevOps capacity)}{EROAD Ltd}{New Zealand}{Aug 2019 – Dec 2021}
+
+\begin{itemize}
+  \item Designed and delivered AWS cloud architecture alongside Java/Spring Boot microservice
+    development, owning both application and infrastructure layers on Amazon ECS.
+
+  \item Implemented IaC using AWS CloudFormation and CI/CD pipelines via Concourse CI; established
+    CloudWatch and Grafana observability stack.
+\end{itemize}
+
+\vspace{10pt}
+
+% ── SPH Media (earlier) ──────────────────────────────────────────────────────
+\entrytitle{Principal Software Engineer / Team Lead}{SPH Media}{Singapore}{Jun 2013 – Sep 2017}
+
+\begin{itemize}
+  \item Led architecture and delivery of the
+    \href{https://www.newslink.sg/}{Newslink} news archival platform — rearchitected search layer
+    with Elasticsearch, significantly improving speed and accuracy.
+
+  \item Managed a team of three engineers; collaborated directly with stakeholders on platform
+    enhancements and production issues.
+
+  \item Automated infrastructure provisioning using AWS CloudFormation and scripting across hybrid
+    on-premises/AWS environments.
+\end{itemize}
+
+% ════════════════════════════════════════════════════════════════════════════
+%  PREVIOUS EXPERIENCE
+% ════════════════════════════════════════════════════════════════════════════
+\section*{Previous Experience}
+
+\noindent
+\textbf{\color{mid}Senior Software Engineer} · Tremor Video DSP · Singapore
+\hfill{\color{light}\textit{\small Sep 2017 – Feb 2018}}\\[2pt]
+\textbf{\color{mid}Software Engineer} · Cellcity Ltd · Singapore
+\hfill{\color{light}\textit{\small Oct 2012 – May 2013}}\\[2pt]
+\textbf{\color{mid}Software Engineer} · OrangeHRM Ltd · Sri Lanka
+\hfill{\color{light}\textit{\small Jan 2008 – Sep 2012}}
+
+% ════════════════════════════════════════════════════════════════════════════
+%  EDUCATION
+% ════════════════════════════════════════════════════════════════════════════
+\section*{Education}
+
+\noindent\textbf{\color{dark}Bachelor of Information Technology} · University of Colombo, Sri Lanka
+
+% ════════════════════════════════════════════════════════════════════════════
+%  OPEN-SOURCE CONTRIBUTIONS
+% ════════════════════════════════════════════════════════════════════════════
+\section*{Open-Source Contributions}
+
+\begin{itemize}
+  \item Authored and maintains
+    \href{https://github.com/SPHTech-Platform/terraform-aws-verified-access}%
+    {SPHTech-Platform/terraform-aws-verified-access} — the authoritative open-source Terraform
+    module for AWS Verified Access.
+
+  \item Feature contribution to
+    \href{https://github.com/cloudposse/terraform-aws-waf/pull/79}%
+    {cloudposse/terraform-aws-waf} — added custom response body for WAF default block action.
+
+  \item Feature contribution to
+    \href{https://github.com/terraform-aws-modules/terraform-aws-cloudwatch/pull/49}%
+    {terraform-aws-modules/terraform-aws-cloudwatch} — added alarm metric transformation unit
+    option.
+
+  \item Contributed ECS Fargate support to
+    \href{https://github.com/SPHTech-Platform/terraform-aws-ecs/pull/4}%
+    {SPHTech-Platform/terraform-aws-ecs}.
+\end{itemize}
+
+% ════════════════════════════════════════════════════════════════════════════
+%  CERTIFICATIONS & RECOGNITION
+% ════════════════════════════════════════════════════════════════════════════
+\section*{Certifications \& Recognition}
+
+\begin{itemize}
+  \item \textbf{9 × AWS Certifications} (including Solutions Architect Professional, DevOps Engineer
+    Professional, Security Specialty)
+
+  \item \textbf{Certified Kubernetes Administrator (CKA)}
+
+  \item \textbf{HashiCorp Certified: Terraform Associate} —
+    \href{https://www.credly.com/users/duleendra-shashimal-warakagoda/badges#credly}{Verification}
+
+  \item \textbf{AWS Community Builder} — active contributor through technical writing and
+    open-source work.
+\end{itemize}
+
+\vspace{10pt}
+\noindent{\color{mid}Technical articles featured on
+  \href{https://www.weekly.tf/}{weekly.tf}:}
+
+\begin{itemize}
+  \item \href{https://www.weekly.tf/p/issue-149-integrating-hashicorp-vault-with-aws-lambda-using-terraform}%
+    {Integrating HashiCorp Vault with AWS Lambda Using Terraform}
+
+  \item \href{https://www.weekly.tf/p/issue-213-terraform-code-for-scalability-and-maintainability-s3-tables-terraform-state-in-azure-can}%
+    {AWS PrivateLink Cross-Region Connectivity}
+
+  \item \href{https://www.weekly.tf/p/issue-206-secure-secrets-with-aws-kms-aws-verified-access-groups-airflow-migrating-terraform-state}%
+    {Sharing AWS Verified Access Groups Across AWS Accounts}
+\end{itemize}
 
 \end{document}
